@@ -20,6 +20,10 @@ locals {
     Turbo_Comment = "Lab session 2672 sample VM"
     Turbo_Park = "True"
   }
+  lifecycle_tags = {
+    createdDate = local.createdDate
+    validThrough = local.validThrough
+  }
 }
 
 
@@ -27,6 +31,6 @@ locals {
 resource "aws_instance" "lab1-vm1" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = "t2.nano"
-  tags          = merge(local.common_tags. local.lifycycle_tags)
+  tags          = merge(local.common_tags, local.lifecycle_tags)
 }
 
