@@ -13,7 +13,7 @@ data "aws_ami" "amazon_linux" {
 
 locals {
   common_tags = {
-    Name = "txclab"-var.suffix
+    Name = "txclab-${var.suffix}"
     Turbo_Team = "AppInfra_Integrations"
     Turbo_Owner = "IT-Automation-enablement-dg@ibm.com"
     Turbo_Use = "Education"
