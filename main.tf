@@ -32,5 +32,9 @@ resource "aws_instance" "lab1-vm1" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = "t2.nano"
   tags          = merge(local.common_tags, local.lifecycle_tags)
+
+  lifecycle {
+    ignore_changes = [tags, tags_all]
+  }
 }
 
